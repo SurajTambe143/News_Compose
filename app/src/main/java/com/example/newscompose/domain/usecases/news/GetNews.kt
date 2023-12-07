@@ -1,6 +1,7 @@
 package com.example.newscompose.domain.usecases.news
 
 import androidx.paging.PagingData
+import com.example.newscompose.data.repository.NewsRepositoryImpl
 import com.example.newscompose.domain.model.Article
 import com.example.newscompose.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow

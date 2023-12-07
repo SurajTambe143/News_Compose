@@ -54,3 +54,9 @@ fun OnBoardingPage(
 
     }
 }
+
+@Preview
+@Composable
+fun onBoardingPage(){
+
+}

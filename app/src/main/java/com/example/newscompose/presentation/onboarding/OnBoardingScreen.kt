@@ -52,7 +52,6 @@ fun OnBoardingScreen(
 
         HorizontalPager(state = pageState) { index ->
             OnBoardingPage(page = pages[index])
-
         }
         Spacer(modifier = Modifier.weight(1f))
         Row(

@@ -1,9 +1,9 @@
 package com.example.newscompose.presentation.details.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -26,8 +26,9 @@ fun DetailsTopBar(
     onShareClick: () -> Unit,
     onBookMarkClick: () -> Unit,
     onBackClick: () -> Unit,
+    saveStatus: Boolean?
 ) {
-    
+
     TopAppBar(
         title = {},
         modifier = Modifier.fillMaxWidth(),
@@ -38,18 +39,36 @@ fun DetailsTopBar(
         ),
         navigationIcon = {
             IconButton(onClick = onBackClick) {
-                Icon(painter = painterResource(id = R.drawable.ic_back_arrow), contentDescription = null)
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_back_arrow),
+                    contentDescription = null
+                )
             }
         },
         actions = {
-            IconButton(onClick =  onBookMarkClick ) {
-                Icon(painter = painterResource(id = R.drawable.ic_bookmark), contentDescription = null)
+            IconButton(onClick = onBookMarkClick) {
+                if (saveStatus == true) {
+                    Log.e("check image status", "DetailsTopBar:saved $saveStatus")
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_bookmark_filled),
+                        contentDescription = null
+                    )
+                } else {
+                    Log.e("check image status", "DetailsTopBar:not saved $saveStatus")
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_bookmark),
+                        contentDescription = null
+                    )
+                }
             }
-            IconButton(onClick =  onShareClick ) {
+            IconButton(onClick = onShareClick) {
                 Icon(imageVector = Icons.Default.Share, contentDescription = null)
             }
-            IconButton(onClick =  onBrowsingClick ) {
-                Icon(painter = painterResource(id = R.drawable.ic_network), contentDescription = null)
+            IconButton(onClick = onBrowsingClick) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_network),
+                    contentDescription = null
+                )
             }
         }
     )
@@ -64,8 +83,8 @@ fun DetailsTopBarPreview() {
         DetailsTopBar(
             onShareClick = { /*TODO*/ },
             onBookMarkClick = { /*TODO*/ },
-            onBrowsingClick = {}) {
-
-        }
+            onBrowsingClick = {/*TODO*/ }, onBackClick = { /*TODO*/ }
+            ,saveStatus = false
+        )
     }
 }
