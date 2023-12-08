@@ -30,8 +30,10 @@ class DetailsViewModel @Inject constructor(
                 viewModelScope.launch {
                     val article = newsUseCases.selectArticle(event.article.url)
                     if (article == null) {
+                        event.article.saveStatus=true
                         insertArticle(event.article)
                     } else {
+                        event.article.saveStatus=false
                         deleteArticle(event.article)
                     }
                 }
