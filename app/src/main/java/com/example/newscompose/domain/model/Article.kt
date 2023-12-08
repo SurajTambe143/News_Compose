@@ -15,5 +15,6 @@ data class Article(
     val source: Source = Source("",""),
     val title: String = "",
     @PrimaryKey val url: String = "",
-    val urlToImage: String? = null
+    val urlToImage: String? = null,
+    var saveStatus:Boolean?=false
 ):Parcelable

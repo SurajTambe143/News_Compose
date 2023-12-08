@@ -156,8 +156,7 @@ fun NewsNavigator() {
                         DetailsScreen(
                             article = article,
                             event = viewModel::onEvent,
-                            navigateUp = { navController.navigateUp() },
-                            saveStatus = saveState)
+                            navigateUp = { navController.navigateUp() })
                     }
             }
             composable(route = Route.BookmarkScreen.route) {
